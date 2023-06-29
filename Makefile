@@ -16,6 +16,7 @@ help:
 	@echo " lint-all                run pre-commit linters on all files"
 	@echo " log                     prepare changelog for spec file"
 	@echo " source                  create source tarball"
+	@echo " build-hub               build osh-hub image"
 
 
 install:
@@ -25,6 +26,8 @@ install:
 build:
 	@./containers/scripts/deploy.sh --no-start
 
+build-hub:
+	@podman build -f containers/hub/Dockerfile -t osh-hub .
 
 full-build:
 	@./containers/scripts/deploy.sh --no-start --full-dev
