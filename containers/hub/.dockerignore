@@ -1,0 +1,16 @@
+# Ignore git and cache directories
+.git
+.cache
+
+# Ignore specific files
+Dockerfile
+README.md
+
+# Ignore all markdown files
+*.md
+
+# Ignore all log files
+*.log
+
+# Ignore all temporary files
+*~

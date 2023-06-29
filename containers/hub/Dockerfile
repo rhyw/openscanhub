@@ -2,8 +2,8 @@ FROM quay.io/centos/centos:stream8
 
 EXPOSE 8000
 
-RUN dnf install -y dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN dnf config-manager --set-enabled powertools
+RUN dnf install -y dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    dnf config-manager --set-enabled powertools
 
 WORKDIR /src
 
@@ -35,7 +35,8 @@ RUN dnf -y --setopt=tsflags=nodocs install \
     python3-qpid-proton \
     python36 \
     postgresql{,-libs} \
-    xz
+    xz && \
+    dnf clean all
 
 COPY containers/hub/run.sh /run.sh
 RUN chmod +x /run.sh
